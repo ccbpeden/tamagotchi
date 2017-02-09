@@ -51,8 +51,12 @@
         $tamagotchi = Tamago::getAll();
         foreach($tamagotchi as $tamago){
             $tamago->passTime();
+            if ($tamago->isAlive()){
+              return $app['twig']->render('create_tamago.html.twig', array('tamagotchi' => Tamago::getAll()));
+            } else {
+              return $app['twig']->render('delete_tamago.html.twig', array('tamagotchi' => Tamago::getAll()));
+            }
         }
-        return $app['twig']->render('create_tamago.html.twig', array('tamagotchi' => Tamago::getAll()));
     });
 
 
