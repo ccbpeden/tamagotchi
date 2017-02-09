@@ -30,9 +30,19 @@ class Tamago
         $this->fed = $fed + 3;
     }
 
+    function getAttention()
+    {
+        return $this->attention;
+    }
+
     function setattention()
     {
         $this->attention = $attention + 3;
+    }
+
+    function getRest()
+    {
+        return $this->rest;
     }
 
     function setRest()
@@ -47,6 +57,15 @@ class Tamago
         $this->rest = $rest - 1;
     }
 
+    static function getAll()
+    {
+        return $_SESSION['tamagotchi'];
+    }
+
+    function save()
+    {
+      array_push($_SESSION['tamagotchi'], $this);
+    }
 
 
 

@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Egg Watcher!</title>
+</head>
+<body>
+    {% if tamagotchi is not empty %}
+        <h1> Your Current Tamagotchi</h1>
+        <ul>
+        {% for tamago in tamagotchi %}
+            <li>{{ tamago.getName }}</li>
+                <ul>
+                    <li>{{ tamago.getFed}}</li>
+                    <li>{{ tamago.getAttention}}</li>
+                    <li>{{ tamago.getRest}}</li>
+                </ul>
+            </ul>
+        {% endfor %}
+        <form action='/feed_Tamago' method='post'>
+            <button type='submit'>Feed Tamago</button>
+        </form>
+        <form action='/attend_Tamago' method='post'>
+            <button type='submit'>Play with Tamago</button>
+        </form>
+        <form action='/rest_Tamago' method='post'>
+            <button type='submit'>Give Tamago a nap!</button>
+        </form>
+    {% endif %}
+    {% if tamagotchi is empty %}
+        <h1> Make a New Tamagotchi!</h1>
+        <form action='/create_tamago' method='post'>
+            <label for='name'>Name</label>
+            <input id='name' name='name' type='text'>
+            <button type='submit'>Add Tamago!</button>
+    {% endif %}
+</body>
