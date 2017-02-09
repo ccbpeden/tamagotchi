@@ -24,17 +24,26 @@
     });
 
     $app->post("/feed_Tamago", function() use ($app) {
-        Tamago::setFed();
+        $tamagotchi = Tamago::getAll();
+        foreach($tamagotchi as $tamago){
+          $tamago->setFed();
+        }
         return $app['twig']->render('create_tamago.html.twig', array('tamagotchi' => Tamago::getAll()));
     });
 
     $app->post("/attend_Tamago", function() use ($app) {
-        Tamago::setAttention();
+        $tamagotchi = Tamago::getAll();
+        foreach($tamagotchi as $tamago){
+        $tamago->setAttention();
+        }
         return $app['twig']->render('create_tamago.html.twig', array('tamagotchi' => Tamago::getAll()));
     });
 
     $app->post("/rest_Tamago", function() use ($app) {
-        Tamago::setRest();
+        $tamagotchi = Tamago::getAll();
+        foreach($tamagotchi as $tamago){
+        $tamago->setRest();
+        }
         return $app['twig']->render('create_tamago.html.twig', array('tamagotchi' => Tamago::getAll()));
     });
 

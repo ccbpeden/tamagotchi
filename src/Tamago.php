@@ -27,7 +27,7 @@ class Tamago
 
     function setFed()
     {
-        $this->fed = $fed + 3;
+        $this->fed += 3;
     }
 
     function getAttention()
@@ -37,7 +37,7 @@ class Tamago
 
     function setattention()
     {
-        $this->attention = $attention + 3;
+        $this->attention += 3;
     }
 
     function getRest()
@@ -47,7 +47,7 @@ class Tamago
 
     function setRest()
     {
-        $this->rest = $rest + 3;
+        $this->rest += 3;
     }
 
     function passTime()
