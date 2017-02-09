@@ -57,6 +57,13 @@ class Tamago
         $this->rest += -1;
     }
 
+    function isAlive()
+    {
+        if($this->fed > 0 && $this->attention > 0 && $this->rest > 0){
+            return true;
+        } else return false;
+    }
+
     static function getAll()
     {
         return $_SESSION['tamagotchi'];
