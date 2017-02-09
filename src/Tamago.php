@@ -52,9 +52,9 @@ class Tamago
 
     function passTime()
     {
-        $this->fed = $fed - 1;
-        $this->attention = $attention - 1;
-        $this->rest = $rest - 1;
+        $this->fed += -1;
+        $this->attention += -1;
+        $this->rest += -1;
     }
 
     static function getAll()

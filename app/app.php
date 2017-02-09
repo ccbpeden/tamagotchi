@@ -26,7 +26,7 @@
     $app->post("/feed_Tamago", function() use ($app) {
         $tamagotchi = Tamago::getAll();
         foreach($tamagotchi as $tamago){
-          $tamago->setFed();
+            $tamago->setFed();
         }
         return $app['twig']->render('create_tamago.html.twig', array('tamagotchi' => Tamago::getAll()));
     });
@@ -34,7 +34,7 @@
     $app->post("/attend_Tamago", function() use ($app) {
         $tamagotchi = Tamago::getAll();
         foreach($tamagotchi as $tamago){
-        $tamago->setAttention();
+            $tamago->setAttention();
         }
         return $app['twig']->render('create_tamago.html.twig', array('tamagotchi' => Tamago::getAll()));
     });
@@ -42,7 +42,15 @@
     $app->post("/rest_Tamago", function() use ($app) {
         $tamagotchi = Tamago::getAll();
         foreach($tamagotchi as $tamago){
-        $tamago->setRest();
+            $tamago->setRest();
+        }
+        return $app['twig']->render('create_tamago.html.twig', array('tamagotchi' => Tamago::getAll()));
+    });
+
+    $app->post("/pass_time", function() use ($app) {
+        $tamagotchi = Tamago::getAll();
+        foreach($tamagotchi as $tamago){
+            $tamago->passTime();
         }
         return $app['twig']->render('create_tamago.html.twig', array('tamagotchi' => Tamago::getAll()));
     });
